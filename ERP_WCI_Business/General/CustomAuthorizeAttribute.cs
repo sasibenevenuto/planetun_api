@@ -42,7 +42,9 @@ namespace ERP_WCI_Business.General
                         new Claim(ClaimTypes.Name, user.UserName),
                         new Claim(ClaimTypes.Email, user.Email),
                         new Claim("State", "Get"),
-                        new Claim("City", "Get")
+                        new Claim("City", "Get"),
+                        new Claim("Inspection", "Get"),
+                        new Claim("Inspection", "Post")
                    }
                );
 

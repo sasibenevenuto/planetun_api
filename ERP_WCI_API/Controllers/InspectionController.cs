@@ -9,6 +9,7 @@ using System;
 using ERP_WCI_Business.Planetun.Interfaces;
 using ERP_WCI_ViewModel.Planetun;
 using ERP_WCI_ViewModel.Commands.Planetun;
+using ERP_WCI_API.Helpers;
 
 namespace ERP_WCI_API.Controllers
 {
@@ -23,6 +24,7 @@ namespace ERP_WCI_API.Controllers
         }
 
         [HttpGet("GetListInspectionAll")]
+        [ClaimsAuthorize("Inspection", "Get")]
         public async Task<BaseReturnApiViewModel<InspectionViewModel>> GetListInspectionAll([FromQuery] string defaultFilter)
         {
             try
@@ -37,6 +39,7 @@ namespace ERP_WCI_API.Controllers
         }
 
         [HttpGet("GetInspectionById")]
+        [ClaimsAuthorize("Inspection", "Get")]
         public async Task<BaseReturnApiViewModel<InspectionViewModel>> GetInspectionById([FromQuery] int inspectionId)
         {
             try
@@ -51,6 +54,7 @@ namespace ERP_WCI_API.Controllers
         }
 
         [HttpPost()]
+        [ClaimsAuthorize("Inspection", "Post")]
         public async Task<BaseReturnCrudViewModel> AddInspection([FromBody] CommandAddInspection commandAddInspection)
         {
             try
@@ -65,6 +69,7 @@ namespace ERP_WCI_API.Controllers
         }
 
         [HttpPut()]
+        [ClaimsAuthorize("Inspection", "Put")]
         public async Task<BaseReturnCrudViewModel> UpdateInspection([FromBody] CommandUpdateInspection commandAddInspection)
         {
             try
@@ -79,6 +84,7 @@ namespace ERP_WCI_API.Controllers
         }
 
         [HttpDelete()]
+        [ClaimsAuthorize("Inspection", "Delete")]
         public async Task<BaseReturnCrudViewModel> DeleteInspectionById([FromQuery] int inspectionId)
         {
             try
